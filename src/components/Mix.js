@@ -1,21 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Playbutton from "./Playbutton";
 import PlayMix from "./PlayMix";
 
 //here we pick out our name prop, and then the rest of the props passes on through
-const Mix = ({ name, pictures, ...props }) => (
+const Mix = ({ name, pictures, slug, id, ...props }) => (
   <div
     className="aspect-ratio aspect-ratio--3x4 pointer bg-black cover bg-center"
     style={{ backgroundImage: `url(${pictures.extra_large})` }}
   >
-    <PlayMix {...props}>
-      <div className="ph3 pv4 aspect-ratio--object">
-        <div className="flex items-center relative z-2">
-          <h1 className="f4 f3-l mv0 white ttu biryani pr2 lh-title">{name}</h1>
-          <Playbutton />
-        </div>
+    <div className="ph3 pv4 aspect-ratio--object mix-overlay">
+      <div className="flex flex-column relative z-2">
+        <h1 className="f4 f3-l mv0 white ttu biryani pr2 lh-title">{name}</h1>
       </div>
-    </PlayMix>
+
+      <Link to={`/show/${slug}`} className="absolute absolute--fill z3" />
+      <PlayMix
+        id={id}
+        {...props}
+        className="absolute bottom-1 left-1 z-5 flex items-left pointer"
+      >
+        <Playbutton />
+      </PlayMix>
+    </div>
   </div>
 );
 

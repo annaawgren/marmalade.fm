@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const Header = props => (
   <header className="black mb5 pt5">
-    <h1 className="ttu f3 tracked-mega anton tc mt0 mb3">Marmalade.Fm</h1>
+    <h1 className="ttu f3 tracked-mega anton tc mt0 mb3">
+      <NavLink to="/" className="link black">
+        Marmalade.Fm
+      </NavLink>
+    </h1>
     <ul className="list flex justify-center pl0">
       <li className="mh2">
         <NavLink
@@ -16,7 +20,7 @@ const Header = props => (
       </li>
       <li className="mh2">
         <NavLink
-          to="./archive"
+          to="/archive"
           className="nav-link link black biryani-black f6 ttu gray"
         >
           Archive
@@ -24,7 +28,7 @@ const Header = props => (
       </li>
       <li className="mh2">
         <NavLink
-          to="./about"
+          to="/about"
           className="nav-link link black biryani-black f6 ttu gray"
         >
           About
